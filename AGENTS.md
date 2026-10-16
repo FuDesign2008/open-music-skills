@@ -80,3 +80,4 @@ npm test
 - 绕过 `skill-creator` 直接改写 SKILL.md 正文
 - 在公开内容中出现内部路径、内部规则编号（会被脱敏门禁拦截）
 - 把 `.omc/`、`.goal-driven/`、`skills/*-workspace/`（本地运维与评测产物）提交进仓库
+- 在仓库里跑 `npx husky <任意参数>`（例如 `npx husky --version` 想查版本）—— husky 会把该参数当作 skill 目录名，执行 `git config core.hooksPath <参数>/_`，直接破坏钩子路径（症状：提交时报 `sh: <参数>/_/pre-commit: invalid option`）。查询版本请用 `node -p "require('husky/package.json').version"`；若已踩坑，无参数重跑 `npx husky` 即可恢复

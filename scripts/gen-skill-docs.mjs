@@ -67,7 +67,14 @@ export function readSkillMeta(skillPath) {
       (desc.startsWith('"') && desc.endsWith('"')) ||
       (desc.startsWith("'") && desc.endsWith("'"))
     ) {
+      const quote = desc[0];
       desc = desc.slice(1, -1);
+      // 与 parseFrontmatter 同样的 YAML 转义解码 —— 否则重解析会覆盖掉它的解码结果
+      if (quote === '"') {
+        desc = desc.replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+      } else {
+        desc = desc.replace(/''/g, "'");
+      }
     }
     data.description = desc;
   }
@@ -101,7 +108,7 @@ export function collectRows(dir = skillsDir) {
     // frontmatter 契约：name / version / user-invocable / description 四字段必填（缺一即报错，
     // 否则索引会以 "—" 兜底静默产出不完整的条目，契约形同虚设）
     const missing = ["version", "user-invocable", "description"].filter(
-      (f) => meta[f] === undefined,
+      (f) => meta[f] === undefined || meta[f] === "",
     );
     if (missing.length) {
       throw new Error(

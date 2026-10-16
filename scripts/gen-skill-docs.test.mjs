@@ -24,6 +24,17 @@ test("parseFrontmatter handles escaped double quote and single-quote doubling", 
   assert.equal(parseFrontmatter("b: 'it''s'").b, "it's");
 });
 
+test("collectRows decodes YAML escapes in description (no regression from re-parse)", () => {
+  // 重解析 description 时若不保留转义解码，会把 it's 输出成 it''s（引入回归）
+  const dir = makeSkillsDir({
+    q1: "---\nname: q1\nversion: \"0.1.0\"\nuser-invocable: true\ndescription: 'it''s here'\n---\n",
+    q2: '---\nname: q2\nversion: "0.1.0"\nuser-invocable: true\ndescription: "say \\"hi\\" now"\n---\n',
+  });
+  const rows = collectRows(dir);
+  assert.equal(rows[0].description, "it's here");
+  assert.equal(rows[1].description, 'say "hi" now');
+});
+
 test("parseFrontmatter boundary: empty block yields empty object", () => {
   assert.deepEqual(parseFrontmatter(""), {});
 });

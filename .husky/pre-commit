@@ -7,13 +7,15 @@ fi
 
 # De-identification gate: block new internal identifiers (private project paths /
 # internal rule numbers) in staged content.
-if git diff --cached --name-only --diff-filter=ACM | grep -qE '^(skills|commands|docs)/'; then
+# 触发路径必须与 lint 脚本的 SCOPE_PREFIXES 保持同步 —— 否则 openspec/ 下的
+# 新增泄漏在本地完全不跑检查（2026-10-16 实测发现）。
+if git diff --cached --name-only --diff-filter=ACM | grep -qE '^(skills|commands|docs|openspec)/'; then
   node scripts/lint-skill-deidentification.mjs --staged || exit 1
 fi
 
 # Auto-regenerate skills index when skill metadata or generator script changes.
 if git diff --cached --name-only | grep -qE '^(skills/.+/SKILL\.md|scripts/gen-skill-docs\.mjs)$'; then
   echo "Regenerating docs/generated/skills-index.md..."
-  node scripts/gen-skill-docs.mjs
+  node scripts/gen-skill-docs.mjs || exit 1
   git add docs/generated/skills-index.md
 fi

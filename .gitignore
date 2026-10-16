@@ -147,3 +147,10 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# OMC / goal-driven queue artifacts (operational, local-only)
+.omc/
+.goal-driven/
+
+# Skill-creator eval workspaces (iteration artifacts + baseline snapshots)
+skills/*-workspace/

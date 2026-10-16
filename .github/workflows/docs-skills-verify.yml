@@ -1,0 +1,25 @@
+name: Docs — Skills index & description gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "scripts/gen-skill-docs.mjs"
+      - "scripts/lint-skill-description.mjs"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint skill description length (hard limit 1024 code points)
+        run: node scripts/lint-skill-description.mjs
+
+      - name: Regenerate skills index
+        run: node scripts/gen-skill-docs.mjs
+
+      - name: Fail if generated file is stale
+        run: git diff --exit-code docs/generated/skills-index.md

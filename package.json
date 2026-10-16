@@ -1,0 +1,16 @@
+{
+  "name": "open-music-skills",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "prepare": "husky || true",
+    "gen:skills-index": "node scripts/gen-skill-docs.mjs",
+    "lint:skill-description": "node scripts/lint-skill-description.mjs",
+    "lint:deid": "node scripts/lint-skill-deidentification.mjs",
+    "install:skills": "node scripts/install-skills.mjs",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}

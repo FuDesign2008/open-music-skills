@@ -7,11 +7,11 @@
 
 ### Requirement: 变更触发的自动版本 bump
 
-当 main 分支收到包含 `skills/**` 路径变更的推送时，仓库 SHALL 自动推断版本递增类型、更新版本源、创建 annotated tag 与对应发布；递增类型 SHALL 按提交消息推断——含 `BREAKING CHANGE` 判为 major，以 `feat:` 或 `feature:` 开头判为 minor，其余判为 patch。
+当 main 分支收到包含 `skills/**` 路径变更的推送时，仓库 SHALL 自动推断版本递增类型、更新版本源、创建 annotated tag 与对应发布；递增类型 SHALL 按提交消息推断——含 `BREAKING CHANGE` 判为 major，以 `feat:` 或 `feature:` 开头（含 Conventional Commits 的 scope 形式 `feat(<scope>):` / `feature(<scope>):`）判为 minor，其余判为 patch。
 
 #### Scenario: feat 提交触发 minor
 
-- **WHEN** 触发推送的提交消息以 `feat:` 或 `feature:` 开头
+- **WHEN** 触发推送的提交消息以 `feat:` 或 `feature:` 开头（含 `feat(<scope>):` 形式）
 - **THEN** 版本 SHALL 按 minor 递增（例如 0.1.0 变为 0.2.0）
 
 #### Scenario: BREAKING CHANGE 触发 major

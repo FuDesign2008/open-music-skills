@@ -77,9 +77,18 @@ test("collectRows error path: missing frontmatter throws", () => {
   assert.throws(() => collectRows(dir), /Missing frontmatter/);
 });
 
+test("collectRows error path: missing required frontmatter field throws", () => {
+  // 契约要求 name/version/user-invocable/description 四字段；缺一即报错，不得以 "—" 兜底放行
+  const dir = makeSkillsDir({
+    nover: "---\nname: nover\ndescription: x\nuser-invocable: true\n---\n",
+  });
+  assert.throws(() => collectRows(dir), /missing required field/);
+});
+
 test("collectRows skips directories without SKILL.md", () => {
   const dir = makeSkillsDir({
-    alpha: '---\nname: alpha\nversion: "0.1.0"\ndescription: x\n---\n',
+    alpha:
+      '---\nname: alpha\nversion: "0.1.0"\nuser-invocable: true\ndescription: x\n---\n',
     notaskill: null,
   });
   assert.equal(collectRows(dir).length, 1);

@@ -90,6 +90,15 @@
 - **总体：✅ PASS**（两轴均无阻塞项）。
 - **阻断级决策落点**：D2（manifest 改名 + 不实跑 prune）、D3（denylist 正则机制）—— 二者若在实现中被省略，视为**实现偏离设计**，须回到本阶段重审。
 
+## Post-Review Revisions（merge-discipline Part R 审查后修订，2026-10-16）
+
+- **脱敏扫描范围加入 `openspec/`** —— 原 `SCOPE_PREFIXES` 只含 skills/commands/docs，导致本次归档件自身的命中被静默放过（脱敏验收空过）。修补后扫描面 2 → 15 文件。
+- **补 `.github/workflows/deid-verify.yml`**（触发路径含 `openspec/**`，以 `--base origin/main` 拦 PR 新增）+ 在 `docs-skills-verify.yml` 增加 description lint —— 原「CI 兜底同一套检查」落空、`--base` 模式成死代码。
+- **`gen-skill-docs` 增强**：支持 YAML 折叠 description（原会把字面量 `>` 写入索引且两道门禁全绿）；强制 frontmatter 四字段必填（原 `version`/`user-invocable` 缺失仅以 `—` 兜底放行）。
+- **规范澄清**：`AGENTS.md` 的 SKILL.md 契约适用范围明确为 `skills/<name>/`；`.claude/**` 为 openspec CLI 生成物，豁免该契约。
+- **范围声明补正**：`.claude/**`（openspec CLI 生成的原生技能 + `/opsx` 斜杠命令，共 14 文件）随 B 块 openspec 环境一并交付；原 proposal 的 Impact 清单遗漏此项。
+- **`release-automation` spec 放宽**：bump 推断的 minor 判定明确接受 Conventional Commits 的 scope 形式 `feat(<scope>):`（实现即如此，原 spec 字面偏窄）。
+
 ## Open Questions
 
 - 端到端 `npx skills` 全局安装/清理验证能否本地完成（取决于网络与全局环境）→ 可延后：若不可行，验证报告记为 pending 并给出人工步骤，不影响 specs、方案或任务拆分。

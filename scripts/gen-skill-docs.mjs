@@ -98,6 +98,16 @@ export function collectRows(dir = skillsDir) {
         `SKILL name must match directory: ${sub} vs name=${meta.name}`,
       );
     }
+    // frontmatter 契约：name / version / user-invocable / description 四字段必填（缺一即报错，
+    // 否则索引会以 "—" 兜底静默产出不完整的条目，契约形同虚设）
+    const missing = ["version", "user-invocable", "description"].filter(
+      (f) => meta[f] === undefined,
+    );
+    if (missing.length) {
+      throw new Error(
+        `SKILL frontmatter missing required field(s): ${missing.join(", ")} (${sub}/SKILL.md)`,
+      );
+    }
     rows.push({
       name,
       version: meta.version ?? "—",

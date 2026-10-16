@@ -1,4 +1,4 @@
-name: Docs — Skills index
+name: Docs — Skills index & description gate
 
 on:
   pull_request:
@@ -7,12 +7,16 @@ on:
     paths:
       - "skills/**"
       - "scripts/gen-skill-docs.mjs"
+      - "scripts/lint-skill-description.mjs"
 
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Lint skill description length (hard limit 1024 code points)
+        run: node scripts/lint-skill-description.mjs
 
       - name: Regenerate skills index
         run: node scripts/gen-skill-docs.mjs

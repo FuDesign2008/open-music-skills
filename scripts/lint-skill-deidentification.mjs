@@ -34,7 +34,9 @@ export const DENYLIST = [
 ];
 
 const TEXT_EXT = new Set([".md", ".json", ".sh", ".mjs", ".js", ".ts", ".yaml", ".yml", ".txt"]);
-const SCOPE_PREFIXES = ["skills/", "commands/", "docs/"];
+// 扫描范围：所有会进入公开仓库的内容表面。
+// openspec/ 必须在内 —— 归档件与行为契约同样是公开内容（曾因遗漏它造成内部标识符静默泄漏）。
+const SCOPE_PREFIXES = ["skills/", "commands/", "docs/", "openspec/"];
 
 function escapeRegex(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

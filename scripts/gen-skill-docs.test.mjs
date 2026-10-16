@@ -89,6 +89,16 @@ test("collectRows boundary: empty skills dir yields no rows", () => {
   assert.deepEqual(collectRows(makeSkillsDir({})), []);
 });
 
+test("collectRows folds YAML multi-line description (block scalar style)", () => {
+  // 折叠写法若不被处理，索引会把字面量 ">" 当作描述 —— 而两道门禁都会放行
+  const dir = makeSkillsDir({
+    folded:
+      '---\nname: folded\nversion: "0.1.0"\ndescription: >\n  line one\n  line two\nuser-invocable: true\n---\n',
+  });
+  const rows = collectRows(dir);
+  assert.equal(rows[0].description, "line one line two");
+});
+
 // ── renderIndex ──────────────────────────────────────────────────
 
 test("renderIndex emits header, count and one row per skill", () => {

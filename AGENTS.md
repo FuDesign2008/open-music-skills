@@ -33,6 +33,8 @@ openspec/                  行为契约（specs/）与变更归档（changes/arc
 
 ## SKILL.md 格式
 
+> **适用范围**：本节契约适用于 `skills/<name>/` 下**由本仓库分发**的 skill。`.claude/skills/**` 是 openspec CLI 的生成物（原生技能与命令），不适用本契约、不参与索引生成与 description 门禁 —— 它们随 `openspec init/update` 演进，手改会被下次生成覆盖。
+
 - **frontmatter 必填**：`name`（**必须等于目录名**，否则索引生成报错）/ `version` / `user-invocable` / `description`
 - **description 硬上限 1024 个 Unicode 码点**（软目标 950）——只放触发路由四要素（做什么 / 何时用 / 触发词 / 反向边界），细节归正文。超限平台加载器会报警。
 - 正文建议 < 500 行；超出时拆 `references/` 并按需指引

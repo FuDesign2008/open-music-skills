@@ -3,7 +3,7 @@
 - [x] 1.1 创建 `package.json`（`name=open-music-skills`、`private: true`、`version=0.1.0`、scripts 六项：`prepare`/`gen:skills-index`/`lint:skill-description`/`lint:deid`/`install:skills`/`test`、devDependencies 仅 `husky`）；验证：`node -p "const p=require('./package.json');[p.name,p.version,Object.keys(p.scripts).length]"` 输出含 `open-music-skills`、`0.1.0`、`6`
 - [x] 1.2 移植 `scripts/gen-skill-docs.mjs` 并**裁剪 modes 渲染分支**（D6；保留 frontmatter 校验「name 必须等于目录名、缺失即抛错」+ 索引表格生成）；验证：对含 1 个 skill 的仓库运行成功产出索引；对 name/目录不一致的临时样例抛错（样例用后即删）
 - [x] 1.3 移植 `scripts/lint-skill-description.mjs`（1024 硬上限 / 950 软目标原样）；验证：临时构造超限样例得非零退出并点名该文件，正常样例零退出（样例用后即删）
-- [x] 1.4 改造并移植 `scripts/lint-skill-deidentification.mjs`（**D3：denylist 升级为正则模式数组**——内部路径前缀 + `铁律\s*\d+`；保留自排除：跳过检测器自身与 `docs/generated/`；保留三模式 `全量`/`--staged`/`--base`）；验证：自测样本 `铁律 12`（含全/半角空格变体）命中、`铁律法则` 不命中、内部路径前缀命中、检测器自身零自命中
+- [x] 1.4 改造并移植 `scripts/lint-skill-deidentification.mjs`（**D3：denylist 升级为正则模式数组**——内部路径前缀 + 规则编号模式；保留自排除：跳过检测器自身与 `docs/generated/`；保留三模式 `全量`/`--staged`/`--base`）；验证：自测样本（真实形态的规则编号，含全/半角空格变体）命中、同前缀无数字词不命中、内部路径前缀命中、检测器自身零自命中
 - [x] 1.5 移植 `scripts/install-skills.mjs`（**D2：manifest 名改为 `.open-music-skills-manifest.json`**；`DEFAULT_AGENTS` 按本仓库支持平台适配）；验证：`node scripts/install-skills.mjs --help`（或等效干跑）不报错；`grep -c 'open-music-skills-manifest' scripts/install-skills.mjs` ≥1 且 `grep -c "'\.open-skills-manifest" ` 为 0
 - [x] 1.6 随行移植单元测试（D7：脱敏检测器 + install-skills 归属判定各一套，按适用性裁剪）；验证：`node --test` 报告非零测试数且全部通过
 - [x] 1.7 创建 `.husky/pre-commit`（三钩子按序：description lint（仅 SKILL.md 变更）→ 脱敏 lint（仅内容路径变更）→ 索引重生成并 `git add`）；验证：`grep -c 'node scripts/' .husky/pre-commit` = 3

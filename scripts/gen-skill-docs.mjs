@@ -48,7 +48,30 @@ export function readSkillMeta(skillPath) {
   if (!m) {
     throw new Error(`Missing frontmatter: ${skillPath}`);
   }
-  return parseFrontmatter(m[1]);
+  const data = parseFrontmatter(m[1]);
+  // description 需支持 YAML 折叠/多行写法（`>` `|` 及其裁剪变体），
+  // 与 lint-skill-description.mjs 的解析能力保持一致 —— 否则折叠写法会以字面量 ">" 进入索引，
+  // 而两道门禁（description 长度 / 索引新鲜度）会全部绿灯放行。
+  const lines = m[1].split("\n");
+  const start = lines.findIndex((l) => l.startsWith("description:"));
+  if (start !== -1) {
+    const first = lines[start].slice("description:".length).trim();
+    const parts = [];
+    if (first && !/^[>|][-+]?$/.test(first)) parts.push(first);
+    for (let i = start + 1; i < lines.length; i++) {
+      if (/^[A-Za-z][\w-]*:/.test(lines[i])) break; // 下一个顶层字段
+      parts.push(lines[i].trim());
+    }
+    let desc = parts.join(" ").replace(/\s+/g, " ").trim();
+    if (
+      (desc.startsWith('"') && desc.endsWith('"')) ||
+      (desc.startsWith("'") && desc.endsWith("'"))
+    ) {
+      desc = desc.slice(1, -1);
+    }
+    data.description = desc;
+  }
+  return data;
 }
 
 export function mdCell(s) {

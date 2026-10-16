@@ -13,7 +13,8 @@ test("scanText ignores the word 铁律 without a number", () => {
 });
 
 test("scanText flags internal project paths", () => {
-  const f = scanText("benchmark at suno/ip_adaptation/zhe_tian/prompt_track02.md");
+  // 最小样本：只保留足以触发规则的前缀 + 一段路径（不内嵌任何真实私有工程的层级结构）
+  const f = scanText("see suno/example.md for details");
   assert.equal(f.length, 1);
   assert.ok(f[0].token.startsWith("suno/"));
 });
@@ -42,6 +43,9 @@ test("inScope: content surfaces in, generated/self/node_modules out", () => {
   assert.ok(!inScope("README.md")); // 根目录不在扫描范围
   // skill-creator 评测工作区（gitignored 本地产物）不在扫描范围
   assert.ok(!inScope("skills/xiaoyao-craft-workspace/iteration-1/eval-0/with_skill/outputs/answer.md"));
+  // openspec/ 是公开内容表面，必须在扫描范围（曾因遗漏它导致归档件泄漏静默通过）
+  assert.ok(inScope("openspec/changes/archive/2026-01-01-x/design.md"));
+  assert.ok(inScope("openspec/specs/x/spec.md"));
 });
 
 test("DENYLIST covers both rule classes", () => {

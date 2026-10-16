@@ -1,0 +1,26 @@
+{
+  "skill_name": "xiaoyao-craft",
+  "evals": [
+    {
+      "id": 1,
+      "name": "same-series-trapped-role",
+      "prompt": "我要给《遮天》禁区至尊专辑的「轮回之主·永困轮回」写一首 Suno 歌词版 prompt。轮回之主掌控轮回大道、主宰轮回海，但掌控的恰恰是困住自己的牢笼——他的力量就是他的牢笼。帮我生成音乐风格指令（Style Prompt）和歌词骨架，要体现这个角色。",
+      "expected_output": "Style Prompt 体现三尺度飘散：句间长空白（短句独立换行）、段尺度失重飘散（drift/dissolve/fade/float 类动词，**不得**出现 strain/reach/push/falling short）、曲尺度不冲的高潮（飘散的浓：drift up weightlessly then dissolve，非 soar/explode 式冲顶）+ 释然收束。角色定性为「能力即牢笼」失能型（曾经自由、如今被困，本性不冲），而非燃曲型。不直接复制逍遥标杆的具体措辞（如 hollow chuckle），而是按轮回之主特质重新落地。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "feedback-too-driven-climax",
+      "prompt": "我给一个迟暮英雄角色写了首 Suno 歌，但生成出来高潮太燃了、太冲了，完全不符合角色——这个角色是曾经最强现在衰落、想冲回巅峰却冲不回去的感觉。现在的高潮成功冲上去了，反而像他还能回去一样。怎么改 Style Prompt 让高潮别那么成功？",
+      "expected_output": "识别出问题本质是「高潮成功＝声音撒谎（形式即内容）」，给出把成功高潮改为不冲高潮的具体改法：段尺度改用 drift/dissolve 类失重动词（**移除** strain/reach/push 类挣扎词）、曲尺度把 soar/explode/triumphant 改为飘散消逝（drift up weightlessly then dissolve）、收束改为释然而非悲壮。应主动区分本美学的「逍遥者超越冲」（声音不挣扎）与「想冲却冲不上」的执念框架——若用户的角色设定确为挣扎型，应指出这偏离本 skill 的核心定位并给出选择。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "original-non-fanfic-role",
+      "prompt": "我在做一个原创角色曲（不是同人、不是遮天）：一个曾经是顶级剑客、如今重伤后再也握不稳剑的老人。想要一种'想出剑却出不了'的无力感，听上去就是冲不上去、使不上劲。帮我写 Suno Style Prompt。",
+      "expected_output": "适用于原创非同人角色（不过拟合遮天/逍遥）。Style Prompt 用通用失重机制表达「想出剑却出不了」：三尺度飘散（句间留白 / 段尺度飘散失重、不再用力够 / 曲尺度不冲的高潮）+ 稀疏空间型材质层让飘散有空气。应把用户的「冲不上去」表述重定向到本美学的不冲框架（无力＝曾经轻松触及、如今飘散，而非用力挣扎失败）。不应套用逍遥的具体设定（行字秘/轮回海/一声笑），证明 skill 是通用方法论而非标杆复刻。",
+      "files": []
+    }
+  ]
+}

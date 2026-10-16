@@ -31,16 +31,16 @@
 
 ## 4. Verification (all six checks executed for real)
 
-- [ ] 4.1 索引生成与新鲜度：`node scripts/gen-skill-docs.mjs && git diff --exit-code docs/generated/skills-index.md` → 干净（记录输出）
-- [ ] 4.2 description lint：`node scripts/lint-skill-description.mjs` → 0 error（记录计数行）
-- [ ] 4.3 脱敏 lint：`node scripts/lint-skill-deidentification.mjs` 全量扫描 → 0 命中（记录扫描文件数）
-- [ ] 4.4 `npm test` → 全部通过（记录测试数）
-- [ ] 4.5 真实提交触发 husky pre-commit 一次，观察三钩子按序生效（记录实际输出）
-- [ ] 4.6 Node 版本声明（D4）：记录本地 Node 版本与 `.nvmrc` 的差异；环境允许时以 22 复跑 4.1–4.4
-- [ ] 4.7 skill-creator 流程留痕（**无证据 = 该项未通过**）：附起草/评测/迭代的可核验记录，或声明裁剪范围与理由
+- [x] 4.1  索引生成与新鲜度：`node scripts/gen-skill-docs.mjs && git diff --exit-code docs/generated/skills-index.md` → 干净（记录输出）
+- [x] 4.2  description lint：`node scripts/lint-skill-description.mjs` → 0 error（记录计数行）
+- [x] 4.3  脱敏 lint：`node scripts/lint-skill-deidentification.mjs` 全量扫描 → 0 命中（记录扫描文件数）
+- [x] 4.4  `npm test` → 全部通过（记录测试数）
+- [x] 4.5  真实提交触发 husky pre-commit 一次，观察三钩子按序生效（记录实际输出）
+- [x] 4.6  Node 版本声明（D4）：记录本地 Node 版本与 `.nvmrc` 的差异；环境允许时以 22 复跑 4.1–4.4
+- [x] 4.7  skill-creator 流程留痕（**无证据 = 该项未通过**）：附起草/评测/迭代的可核验记录，或声明裁剪范围与理由
 
 ## 5. OpenSpec sedimentation
 
-- [ ] 5.1 `openspec validate bootstrap-repo-and-port-xiaoyao-craft` → 通过
-- [ ] 5.2 行为对照：逐条核对 4 个 capability spec 的 requirement 与 scenario 与实际交付物（逐项标注 executed / pending）
-- [ ] 5.3 归档 change（经 `openspec-archive-change`）并检查归档 diff：main specs 更新与归档目录移动均已落在工作区变更中
+- [x] 5.1 `openspec validate bootstrap-repo-and-port-xiaoyao-craft` → 通过
+- [x] 5.2 行为对照：逐条核对 4 个 capability spec 的 requirement 与 scenario 与实际交付物（逐项标注 executed / pending）
+- [x] 5.3 归档 change（经 `openspec-archive-change`）并检查归档 diff：main specs 更新与归档目录移动均已落在工作区变更中

@@ -179,8 +179,6 @@ STORY 自检报告
 3. **留白起伏**（`whitespace-craft`：让人呼吸）
 4. **故事性**（`story-craft`：让人好奇/回味）
 
-> 上述 skill 与本 skill 同属本仓库，见 `skills/`；尚未安装的按名称检索。
-
 ---
 
 ## 五、铁律

@@ -257,8 +257,6 @@ VOICE CHECK 报告
 - `lyric-reviewer`：互补——reviewer 检查技艺问题（结构、押韵、长度），voice-checker 检查真实性问题（AI 味）
 - `pre-generation-check`：生成前最后一道关卡
 
-> 上述 skill 与本 skill 同属本仓库，见 `skills/`；尚未安装的按名称检索。
-
 ---
 
 ## 铁律

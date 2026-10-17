@@ -44,10 +44,16 @@ test("scanText flags backtick-wrapped private dirs with placeholders", () => {
   assert.ok(f.every((x) => x.token.startsWith("`")));
 });
 
+test("scanText flags an extensionless private directory reference", () => {
+  assert.equal(scanText("see research/private").length, 1);
+});
+
 test("scanText does not flag research as a common word, URL segment, or word suffix", () => {
   assert.deepEqual(scanText("research/engineering collaboration"), []);
   assert.deepEqual(scanText("https://example.com/research/notes.md"), []);
   assert.deepEqual(scanText("myresearch/foo"), []);
+  // 无扩展名的裸目录名在散文中不误伤；带文件扩展名仍命中
+  assert.equal(scanText("research/notes.md").length, 1);
 });
 
 test("scanText returns [] for generic placeholders", () => {

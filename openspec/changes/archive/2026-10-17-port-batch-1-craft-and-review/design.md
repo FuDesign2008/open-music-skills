@@ -1,7 +1,7 @@
 ## Context
 
 - 源工程 4 个 skill 均为**纯文本方法论**（无运行时依赖、无 scripts/），逐一核对规模：`imagery-craft` 260 行 / `story-craft` 225 / `whitespace-craft` 199 / `voice-checker` 274 —— 全部 < 500 行，无需拆 `references/`。
-- 它们共同构成写词的**完整创作闭环**：画面（imagery）+ 故事（story）+ 留白（whitespace）三支创作技法互相引用，AI 味检测（voice-checker）作为检测层与三者互补——这是本批一起移植的根本原因。
+- 它们共同构成写词的**完整创作闭环**：画面（imagery）+ 故事（story）+ 留白（whitespace）三支创作技法互补，AI 味检测（voice-checker）作为检测层与三者互补——这是本批一起移植的根本原因。
 - 执行规范已在 `docs/porting-plan.md` §十 冻结（skill-creator 流程 / 四字段 / 脱敏三查 / 四命令验收）。
 - 源工程这些 skill **均无 evals/** —— 评测用例需在移植时新写（不同于 `xiaoyao-craft` 那种随行迁移）。
 
@@ -27,7 +27,7 @@
 
 ### D2. 跨 skill 引用指向最终目标名
 
-- **决策**：保留跨 skill 引用，但使用**最终目标名**（`music-creation-workflow` / `lyric-reviewer` / `pre-generation-check` / `songyun-craft` / `ego-miaoxiang-create`），并在正文注明「同仓库 skill，见 skills/」。
+- **决策**：保留跨 skill 引用，但使用**最终目标名**（`music-creation-workflow` / `lyric-reviewer` / `pre-generation-check` / `songyun-craft` / `ego-miaoxiang-create`）；正文不额外加注（引用名本身可检索），被引用 skill 由后续批次落地。
 - **理由**：四维创作模型的价值正在于互引；改成通用描述会丢失可操作性。这些 skill 会在后续批次落地（batch-3..8）。
 - **风险处置**：本批验收**不要求**被引用 skill 已存在（proposal 已声明）；后续批次落地后引用自动生效。
 

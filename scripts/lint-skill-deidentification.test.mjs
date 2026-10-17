@@ -44,16 +44,32 @@ test("scanText flags backtick-wrapped private dirs with placeholders", () => {
   assert.ok(f.every((x) => x.token.startsWith("`")));
 });
 
-test("scanText flags an extensionless private directory reference", () => {
+test("scanText flags extensionless and path-like private directory references", () => {
   assert.equal(scanText("see research/private").length, 1);
+  assert.equal(scanText("see research/private for details").length, 1);
+  assert.equal(scanText("research/private at the end").length, 1);
+  assert.equal(scanText("research/engineering-notes").length, 1);
+  assert.equal(scanText("research/engineering/notes").length, 1);
+  assert.equal(scanText("research/notes.md").length, 1);
 });
 
-test("scanText does not flag research as a common word, URL segment, or word suffix", () => {
-  assert.deepEqual(scanText("research/engineering collaboration"), []);
+test("scanText does not flag URLs, word suffixes, or platform juxtaposition", () => {
   assert.deepEqual(scanText("https://example.com/research/notes.md"), []);
   assert.deepEqual(scanText("myresearch/foo"), []);
-  // 无扩展名的裸目录名在散文中不误伤；带文件扩展名仍命中
-  assert.equal(scanText("research/notes.md").length, 1);
+  assert.deepEqual(scanText("Suno/妙响 双线"), []);
+  assert.deepEqual(scanText("`Suno/妙响` 双线"), []);
+});
+
+test("scanText intentionally favors catching private paths in English prose", () => {
+  // 脱敏门禁宁可误报：散文里的 research/xxx 也命中，改写措辞即可
+  assert.equal(scanText("research/engineering collaboration").length, 1);
+  assert.equal(scanText("research/teaching methods").length, 1);
+});
+
+test("scanText flags a backtick-wrapped suno path but not platform juxtaposition", () => {
+  assert.equal(scanText("see `suno/x`").length, 1);
+  assert.equal(scanText("see `suno/example.md`").length, 1);
+  assert.deepEqual(scanText("`Suno/妙响` 双线"), []);
 });
 
 test("scanText returns [] for generic placeholders", () => {

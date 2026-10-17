@@ -15,7 +15,7 @@
 **Non-Goals:**
 - 不追求评测的统计严谨（budget 限制；见 D4）
 - 不移植源工程的私有调研资料与课程笔记资产（它们属于私有资料，不是 skill 本体）
-- 不为跨 skill 引用补建桩（引用指向后续批次的目标名，悬空由 batch-2..8 收口）
+- 不为跨 skill 引用补建桩（引用指向后续批次的目标名，悬空由 batch-3..8 收口）
 
 ## Decisions
 
@@ -27,8 +27,8 @@
 
 ### D2. 跨 skill 引用指向最终目标名
 
-- **决策**：保留跨 skill 引用，但使用**最终目标名**（`music-creation-workflow` / `lyric-reviewer` / `pre-generation-check` / `songyun-craft` / `ego-miaoxiang-create`）；正文不额外加注（引用名本身可检索），被引用 skill 由后续批次落地。
-- **理由**：四维创作模型的价值正在于互引；改成通用描述会丢失可操作性。这些 skill 会在后续批次落地（batch-3..8）。
+- **决策**：保留跨 skill 引用，但使用**最终目标名**（`music-creation-workflow` / `lyric-reviewer` / `pre-generation-check` / `songyun-craft`）；正文不额外加注（引用名本身可检索），被引用 skill 由后续批次落地。
+- **理由**：完整创作闭环的价值正在于跨维度协作（不要求两两互引）；改成通用描述会丢失可操作性。这些 skill 会在后续批次落地（batch-3..8）。
 - **风险处置**：本批验收**不要求**被引用 skill 已存在（proposal 已声明）；后续批次落地后引用自动生效。
 
 ### D3. 体量守门
@@ -58,7 +58,7 @@
 
 **Stage 4 双轴审查（2026-10-17）** · Reversibility：two-way door（纯新增）→ standard 深度
 
-- **Standards 轴**：`solution-review` 9 维 —— Effectiveness ✅（4 skill 覆盖四维创作模型）；Side-effects ✅（零运行时依赖，不触碰既有 skill）；Feasibility ✅（源版均 <500 行，无 scripts）；Reversibility two-way door；FMEA 最高风险 = description 超限 / 脱敏漏网，均有门禁兜底；Operability ✅（CI 兜底）；Cost-value ✅（~2h 换 4 个基础 skill）；Team cognitive fit ✅。
+- **Standards 轴**：`solution-review` 9 维 —— Effectiveness ✅（4 skill 覆盖完整创作闭环：三支创作技法 + AI 味检测层）；Side-effects ✅（零运行时依赖，不触碰既有 skill）；Feasibility ✅（源版均 <500 行，无 scripts）；Reversibility two-way door；FMEA 最高风险 = description 超限 / 脱敏漏网，均有门禁兜底；Operability ✅（CI 兜底）；Cost-value ✅（~2h 换 4 个基础 skill）；Team cognitive fit ✅。
 - **Spec 轴**：4 个 capability 的 requirement/scenario 与本方案一致；`openspec validate` 已通过 ✅。
 - **总体：✅ PASS**（无 blocking）。
 

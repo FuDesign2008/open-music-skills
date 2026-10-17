@@ -1,0 +1,12 @@
+{
+  "skill_name": "launch-strategy",
+  "evals": [
+    {
+      "id": 1,
+      "name": "album-launch-plan",
+      "prompt": "专辑已经生成完了，8 首歌，帮我做一个 4 周上线计划和变现路径。",
+      "expected_output": "触发 launch-strategy：Phase 0 确认生成/母带/曲名/商用授权；Phase 1 给每首曲名的蹭热度主词 + 品类/场景池 + BGM 垂类；Phase 2 排 4 周节奏（Week 1 蹭热度最强、Week 2 SEO 最强、Week 3 同名主打+梗歌、Week 4 其余）；Phase 3 给流媒体播放分成 + 短视频 BGM 联动主路径及风险；Phase 4 按模板输出 launch_plan.md，标注指标口径与复盘窗口。",
+      "files": []
+    }
+  ]
+}

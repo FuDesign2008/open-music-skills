@@ -1,0 +1,12 @@
+{
+  "skill_name": "pre-generation-check",
+  "evals": [
+    {
+      "id": 1,
+      "name": "track-not-ready-blocking-issues",
+      "prompt": "准备生成了，帮我跑一遍生成前检查。曲目文件里 Style 没写 BPM，Prompt 里出现了「Nirvana」，歌词里还有一句「[TODO] 补副歌」。",
+      "expected_output": "触发 pre-generation-check：逐关输出报告，Gate 1 缺 BPM/调式 = BLOCKING；Gate 3 Prompt 含艺人名 = BLOCKING（有过滤器的平台）；Gate 2 歌词含 [TODO] 占位符 = BLOCKING；判定 ❌ NOT READY，精确到关卡与位置；只报告不修改文件；修复后重跑。",
+      "files": []
+    }
+  ]
+}

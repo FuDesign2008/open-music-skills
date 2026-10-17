@@ -1,0 +1,19 @@
+{
+  "skill_name": "music-creation-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "name": "mode-a-lyrics-song-creation",
+      "prompt": "帮我写一首关于深夜加班的歌，女声，民谣方向，要有画面感但不矫情。",
+      "expected_output": "触发 music-creation-workflow：按模式 A 组织 Prompt（原创性声明 + 演唱声线 + 情绪定调 + 乐器编配 + 技术参数 + 结构要求）；写词时调用 imagery-craft/story-craft/whitespace-craft 四维清单；完成后自动走 voice-checker → reality-check → lyric-reviewer → 四维自检 → pre-generation-check；给出时长声明、副歌 hook 与前 5-8 秒进主旋律的结构要求；不堆砌形容词，用具体感官锚点。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "mode-b-instrumental-creation",
+      "prompt": "做一首纯器乐，钢琴主导，温暖治愈，不要人声。",
+      "expected_output": "触发 music-creation-workflow 模式 B：Prompt 含原创性声明、情绪定调、主导乐器 + 演奏技法 + 和声色彩三要素、BPM/调式、结构描述与人声控制标记（Instrumental only, no vocals）；跳过歌词检查，直接 pre-generation-check；曲名独立命名，不复用歌词版元素。",
+      "files": []
+    }
+  ]
+}

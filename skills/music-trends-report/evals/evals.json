@@ -1,0 +1,12 @@
+{
+  "skill_name": "music-trends-report",
+  "evals": [
+    {
+      "id": 1,
+      "name": "two-week-trend-research-for-album",
+      "prompt": "帮我调研近两周的抖音/汽水音乐热歌趋势，给下张专辑选型用。",
+      "expected_output": "触发 music-trends-report：Phase 0 确认数据窗口/平台权重/输出路径；Phase 1 多源采集（核心平台 + 病毒侧 + 代理榜单 + 辅助平台），采集失败不臆填；Phase 2 跨源去重按权重排序并做偏差纠偏（头部艺人效应/K-Pop 高估/男声民谣低估）；Phase 3 七类旋律 + BPM 双峰 + 制作签名 + 主题密度 + 缺口；Phase 4 给 Top 3 类型的双载体 Style 配方；Phase 5 输出 5 条可执行战略洞察并按模板落盘，标注数据窗口、调研日期与平台归属。",
+      "files": []
+    }
+  ]
+}

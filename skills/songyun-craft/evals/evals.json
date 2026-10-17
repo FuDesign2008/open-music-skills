@@ -1,0 +1,48 @@
+{
+  "skill_name": "songyun-craft",
+  "notes": "用例为纸面评估（paper eval，轻量定性——创作类 skill 不做重基准）；触发检查（description 级）以 20 queries 盲评执行（见 evals/trigger-evals.json）；本批为 v0 设计层产出（全部技法未实测），实测批后回喂迭代。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "positive-creation-direction-no-keyword",
+      "prompt": "新一批歌企划，想走淡一点的路线——不煽情、不飙高音，把日常小事写出仪式感。帮我把方向落成可执行的词层和 Style 方向",
+      "expected_output": "触发 songyun-craft（无「宋韵」字面也命中触发词「平淡/不煽情/日常仪式感」）。产出应：认领 1–2 组（如组二平淡/组四日常）；给词层要点（低能量动词、侧写代替直陈、仪式动作引擎、双写纪律）＋声音层要点（反向动态曲线等，标【待实测】）；提醒单变量纪律（其余变量固定）；不动 whitespace 变量",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "positive-explicit-songyun-batch-planning",
+      "prompt": "这批 10 首按宋韵美学做企划——先做命题分配，再给每组的单变量切口",
+      "expected_output": "触发 songyun-craft；按本 skill 的六组索引做批内分配（按曲目数与情感分布给各组名额，组四可略多；不照搬固定比例）；标命题合并裁定待创作者复核；声音层写进生成前指令＋首夜 ≤1–2 校准样本（三条风险行为先行校准）",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "positive-kudan-fix-not-add-layers",
+      "prompt": "几首歌被反馈「太平淡、听三遍什么都不剩」——但我想要的不是加料加乐器，是素净里藏着暗劲那种感觉。怎么改？",
+      "expected_output": "触发 songyun-craft（枯淡=要治的失败态）；用 T2 枯淡测试诊断（底下有没有暗劲——悬着的意象/未解的细节）＋T4 张力（静默必须带电）；给出组二（平淡）方向：表面素净、内里是厚的（和声暗动/一处没说完的事）；不推荐加配器堆料/加和声墙的错误解法（违背枯淡纪律）",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "boundary-xiaoyao-loss-not-self-sufficient",
+      "prompt": "写一首歌：曾经最自由、如今被困在一个地方，想要飘散、失重、不挣扎的感觉",
+      "expected_output": "触发 xiaoyao-craft（失重飘散美学）；不触发 songyun-craft（若并列出现，须按辨异说明：此为「丧失后的淡」，底色悲/无力——与宋韵「自足的淡」底色必须分开，同曲不混用）",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "boundary-whitespace-vocal-absence-engineering",
+      "prompt": "想让歌里人声少一点：开头结尾各 30 秒纯器乐，人声占比尽量降到 40%",
+      "expected_output": "触发 whitespace-craft（人声缺席工程线——占比/头尾器乐时长/器乐填充）；不触发 songyun-craft（变量隔离：whitespace 是工程线、本 skill 是审美机制维；同跑时留白只动结尾一处作对照，大面积留白结构另行独立验证）",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "boundary-orchestration-opposite-direction",
+      "prompt": "这首编曲太单薄了，想加弦乐铺底、加对位让层次丰满，繁花似锦一点",
+      "expected_output": "触发 orchestration-craft（配器丰满/织体层）；不触发 songyun-craft 简素组（方向相反——组一是其「繁花似锦」的有意反极：先砍到一件乐器；本线适用场景是「想要少」不是「想要多」）",
+      "files": []
+    }
+  ]
+}

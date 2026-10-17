@@ -1,0 +1,19 @@
+{
+  "skill_name": "lyric-reviewer",
+  "evals": [
+    {
+      "id": 1,
+      "name": "missing-structure-and-abstract-imagery",
+      "prompt": "帮我审查这首歌词：『你说今天的风很轻 / 我想起很多梦想和希望 / 我们走过长长的街 / 心里有光也有黑暗』",
+      "expected_output": "触发 lyric-reviewer：按 16 点清单输出报告——检查点 3 缺少段落结构标记 = Critical；检查点 6 全抽象、无具体感官锚点 = Warning；检查点 2 行长度/节奏可给 Info/Warning。只给报告与修复方向，不直接改写歌词。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "golden-line-without-carrier-and-thin-diamonds",
+      "prompt": "帮我审查这首歌词：『[Verse] 楼下便利店的灯还亮着 / 我买了两瓶水 / [Chorus] 我要飞得更高 飞到没有人到过的地方 / [Verse] 你说过会回来 / [Chorus] 我要飞得更高 飞到没有人到过的地方』",
+      "expected_output": "触发 lyric-reviewer：检查点 10 金句承重——最强句「我要飞得更高…」是口号式表达，没有可指认的载体承住（抽掉载体句意不塌，只是顺口） = Warning；检查点 14 情理钻石位——全曲可数的情感/哲理亮点不足 2 处且集中在副歌 = Critical；检查点 3 V2 无递进 = Warning。只给报告与修复方向，不直接改写歌词。",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "skill_name": "songyun-craft",
+  "purpose": "description 触发检查集（20 queries：10 should-trigger + 10 should-not-trigger，含近似干扰项）——skill-creator 流程的 description 触发优化步骤轻量执行输入；结果记录见 result 与 skill 本体最终 description。",
+  "result": "盲评（独立 subagent，2026-10-08）：20/20 符合预期——10/10 should-trigger 全触发（触发词逐字命中：不煽情/仪式感/副歌收着唱/安静但不空/含蓄/新中式/极简配器等；无「宋韵」字面的 1/2/3/4/6/8/9/10 均按 pushy 设计正确触发）；10/10 should-not-trigger 全未触发（燃曲/甜歌/xiaoyao/whitespace/orchestration/数据采集/审查/曲名/母带）。唯一 borderline=#16「上班族挤地铁日常」（判 NO-TRIGGER，符合预期——裸「日常」题材无审美信号不触发，避免截胡通用创作）。该盲评为源版 description 的记录；本版 description 已按触发路由四要素重写，触发效果需重新评估。",
+  "queries": [
+    { "id": 1, "query": "下一批歌想走淡一点的路线，不煽情，把日常小事写出仪式感，帮我按这个方向写词和 Style", "should_trigger": true },
+    { "id": 2, "query": "这首歌词想围绕一盏用旧了的台灯写，灯罩上有一道裂——想把这道裂写进歌里，不要修好它", "should_trigger": true },
+    { "id": 3, "query": "副歌我想收着唱，不要飙高音，整体安静但不空，Style 指令怎么写？", "should_trigger": true },
+    { "id": 4, "query": "歌词写完了但感觉太满了——意象太多有点杂烩，想删到只剩一两个核心意象；配器也想减到两三件", "should_trigger": true },
+    { "id": 5, "query": "这批 10 首按宋韵美学企划，帮我做命题分配和单变量切口", "should_trigger": true },
+    { "id": 6, "query": "有几首歌被人说太平淡、听三遍什么都不剩——但我要的不是加料，是那种素净里藏着暗劲的感觉，怎么救", "should_trigger": true },
+    { "id": 7, "query": "想做一首围炉煮茶那种氛围的新中式歌，给年轻人听的，不要古风堆料那种", "should_trigger": true },
+    { "id": 8, "query": "歌词想含蓄一点，说一半藏一半，结尾别做总结，留一个还在发生的动作", "should_trigger": true },
+    { "id": 9, "query": "写一首歌，全曲就围绕一只旧碗写，要有使用痕迹那种，像被生活用过很多年", "should_trigger": true },
+    { "id": 10, "query": "Style 想要极简配器：一件乐器主导像老物件在说话，其余退到雾里，全曲乐器不超过三件", "should_trigger": true },
+    { "id": 11, "query": "写一首燃向战歌，副歌要爆发，最后一段飙上去要有力量感", "should_trigger": false },
+    { "id": 12, "query": "帮我写首甜甜的夏日恋爱情歌，女生唱，要有元气", "should_trigger": false },
+    { "id": 13, "query": "想要曾经最自由、如今被困在一个地方的感觉，飘散、失重、不挣扎", "should_trigger": false },
+    { "id": 14, "query": "这首编曲太单薄了，想加弦乐铺底、加对位让层次丰满，繁花似锦一点", "should_trigger": false },
+    { "id": 15, "query": "想让歌里人声少一点，开头结尾各 30 秒纯器乐，人声占比降到 40%", "should_trigger": false },
+    { "id": 16, "query": "帮我写一首上班族挤地铁日常的歌，真实一点", "should_trigger": false },
+    { "id": 17, "query": "去汽水后台把近 7 天的播放数据采下来，做个 CSV", "should_trigger": false },
+    { "id": 18, "query": "帮我审查这几首歌词的韵脚和节奏有没有问题", "should_trigger": false },
+    { "id": 19, "query": "这批歌的曲名帮我想想，要有搜索量的蹭热度词", "should_trigger": false },
+    { "id": 20, "query": "这首歌副歌那边音频好像有爆音，帮我看看母带怎么处理", "should_trigger": false }
+  ]
+}

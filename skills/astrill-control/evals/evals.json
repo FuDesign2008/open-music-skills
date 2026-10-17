@@ -1,0 +1,13 @@
+{
+  "skill_name": "astrill-control",
+  "note": "契约级评测（paper eval）：真实切换需要 macOS 辅助功能授权与已安装的 Astrill，无法离线端到端执行。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "vpn-off-before-upload-with-dns-check",
+      "prompt": "待会儿要往国内平台传音频，上传老失败，帮我把 VPN 关掉并确认网络是干净直连。",
+      "expected_output": "触发 astrill-control：跑 `scripts/astrill.sh status` 看 app/隧道/GUI/出口 IP 四信号；`off` 幂等断开（GUI 为主判据，OpenWeb 模式下无隧道进程也正常；app 保活）；off 后立即跑 DNS 残留检测（scutil nameserver 10.x）与路由残留检测（utun），有残留则按恢复命令处理或交用户；确认双探针 + DNS 干净后才允许上传；完成后按需恢复 VPN on。若 GUI 不可达，提示检查宿主 App（Terminal/iTerm2/VS Code/CMUX）的辅助功能授权。",
+      "files": []
+    }
+  ]
+}

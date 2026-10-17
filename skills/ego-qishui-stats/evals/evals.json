@@ -1,0 +1,13 @@
+{
+  "skill_name": "ego-qishui-stats",
+  "note": "契约级评测（paper eval）：真实采集需要平台登录态，无法离线端到端执行。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "three-window-stats-collection",
+      "prompt": "帮我看看这个月汽水后台的数据，看看哪几首歌在涨，顺便更新一下数据表。",
+      "expected_output": "触发 ego-qishui-stats：探测登录态后开 statistics 页；三周期（近1天/7天/30天）逐轮坐标法点周期按钮 + DOM 提取 8 指标 + CDP 截图 + 目视核对选中态与方向；TOP10 只入批次笔记；CSV 长表按 8 列追加并做数值标准化与日期 ISO 化；增量按同口径快照相减（禁止跨口径算比率）；判读按署名分层、D0/D1 不下结论；采集边界项登记备查。**隐私与存储**：账号级 CSV/截图/笔记默认私有，放 gitignored 目录、不提交公开仓库；截图含账号信息时分享前裁剪或打码。",
+      "files": []
+    }
+  ]
+}

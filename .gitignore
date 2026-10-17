@@ -154,3 +154,7 @@ vite.config.ts.timestamp-*
 
 # Skill-creator eval workspaces (iteration artifacts + baseline snapshots)
 skills/*-workspace/
+
+# Python bytecode (skill scripts / local runs)
+__pycache__/
+*.pyc

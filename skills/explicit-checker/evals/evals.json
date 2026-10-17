@@ -1,0 +1,12 @@
+{
+  "skill_name": "explicit-checker",
+  "evals": [
+    {
+      "id": 1,
+      "name": "explicit-mark-mismatch",
+      "prompt": "发布前帮我扫一下这首歌词：里面有 fuck 和『妈的』，但我记得文件里写的是 Explicit: No。",
+      "expected_output": "触发 explicit-checker：逐行扫描英文 F-word 与中文粗口（A 档），发现标记为 No 但内容含显式词 → 报「标记不匹配」，建议设置 Explicit: Yes；提示国内平台拒审风险（B 档额外提示）；只标记、不自动改写歌词。",
+      "files": []
+    }
+  ]
+}

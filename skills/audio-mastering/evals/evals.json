@@ -1,0 +1,12 @@
+{
+  "skill_name": "audio-mastering",
+  "evals": [
+    {
+      "id": 1,
+      "name": "loud-ai-track-to-streaming-target",
+      "prompt": "这张专辑要上 Spotify，Suno 导出的 WAV 听着太响，我该怎么做母带？",
+      "expected_output": "触发 audio-mastering：先测量源 LUFS 并判断策略；以 -14 LUFS / -1 dBTP 为目标；成品使用 two-pass（先测量再用实测值归一化），明确 single-pass 会偏响 1-2 LUFS；给出 EQ+lowpass+loudnorm v5 链与 scripts/master_twopass.py 用法；输出到 mastered/ 且不覆盖原始文件；生成后验证响度并做 A/B 试听。",
+      "files": []
+    }
+  ]
+}

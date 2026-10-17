@@ -28,7 +28,10 @@ const SELF = path.relative(root, __filename).split(path.sep).join("/"); // scrip
 export const DENYLIST = [
   // 私有工程路径形态:顶层目录 + 斜杠 + ASCII 路径段。
   // 限定 ASCII 首字符,避免误伤「Suno/妙响」这类平台并列写法。
-  { pattern: "(?:suno|masterclass)/[A-Za-z0-9]" },
+  { pattern: "(?:suno|masterclass|research)/[A-Za-z0-9]" },
+  // 反引号包裹的私有目录形态:如 `masterclass/...`。路径段可能是省略号或占位符,
+  // 上面的 ASCII 首字符规则覆盖不到;此条目只列私有目录,不含 suno(避免误伤平台名)。
+  { pattern: "`(?:masterclass|research)/[^`\\n]*`" },
   // 内部规则编号引用:「铁律 12」「铁律26」(容忍全角空格)。
   { pattern: "铁律[\\s　]*\\d+" },
 ];

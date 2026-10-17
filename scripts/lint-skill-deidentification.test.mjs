@@ -30,6 +30,20 @@ test("scanText is case-insensitive and reports 1-based line", () => {
   assert.equal(f[0].line, 2);
 });
 
+test("scanText flags the research private directory", () => {
+  // 归档文档曾残留该目录名；denylist 必须覆盖，而不是靠一次性人工清理
+  const f = scanText("see research/example.md for details");
+  assert.equal(f.length, 1);
+  assert.ok(f[0].token.startsWith("research/"));
+});
+
+test("scanText flags backtick-wrapped private dirs with placeholders", () => {
+  // 反引号 + 省略号形式不经由「ASCII 首字符」规则命中，需要独立模式兜底
+  const f = scanText("删除私有路径（`research/...`、`masterclass/...`）");
+  assert.equal(f.length, 2);
+  assert.ok(f.every((x) => x.token.startsWith("`")));
+});
+
 test("scanText returns [] for generic placeholders", () => {
   assert.deepEqual(scanText("https://example.com/docs/PROJ-1234 app-log"), []);
 });
@@ -48,6 +62,9 @@ test("inScope: content surfaces in, generated/self/node_modules out", () => {
   assert.ok(inScope("openspec/specs/x/spec.md"));
 });
 
-test("DENYLIST covers both rule classes", () => {
-  assert.ok(DENYLIST.length >= 2);
+test("DENYLIST covers all rule classes", () => {
+  assert.ok(DENYLIST.length >= 3);
+  assert.equal(scanText("suno/x.md").length, 1); // 私有路径
+  assert.equal(scanText("`research/...`").length, 1); // 反引号占位路径
+  assert.equal(scanText("铁律 3").length, 1); // 规则编号
 });

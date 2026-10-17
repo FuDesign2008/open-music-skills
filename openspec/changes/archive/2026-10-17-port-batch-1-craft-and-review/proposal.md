@@ -13,7 +13,7 @@ open-music-skills 目前只有 1 个 skill（`xiaoyao-craft`），仓库的**创
 
 **改造（每 skill 相同）**：
 - 删除内部规则编号引用 → 改为规则本身的表述
-- 删除私有路径（`research/...`、`masterclass/...`）→ 改为「扩展阅读」或删除
+- 删除私有资料路径 → 改为「扩展阅读」或删除
 - 删除私有批次号/曲目名/专辑名 → 去名或改公开示例
 - 跨 skill 引用改为**最终目标名**（同仓库后续批次将落地：`music-creation-workflow` / `lyric-reviewer` / `pre-generation-check` / `songyun-craft` / `ego-miaoxiang-create` 等）
 - 平台专属表述标注适用范围

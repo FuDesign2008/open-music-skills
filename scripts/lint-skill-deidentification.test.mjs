@@ -44,6 +44,12 @@ test("scanText flags backtick-wrapped private dirs with placeholders", () => {
   assert.ok(f.every((x) => x.token.startsWith("`")));
 });
 
+test("scanText does not flag research as a common word, URL segment, or word suffix", () => {
+  assert.deepEqual(scanText("research/engineering collaboration"), []);
+  assert.deepEqual(scanText("https://example.com/research/notes.md"), []);
+  assert.deepEqual(scanText("myresearch/foo"), []);
+});
+
 test("scanText returns [] for generic placeholders", () => {
   assert.deepEqual(scanText("https://example.com/docs/PROJ-1234 app-log"), []);
 });

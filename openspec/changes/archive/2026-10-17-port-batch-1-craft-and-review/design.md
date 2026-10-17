@@ -1,7 +1,7 @@
 ## Context
 
 - 源工程 4 个 skill 均为**纯文本方法论**（无运行时依赖、无 scripts/），逐一核对规模：`imagery-craft` 260 行 / `story-craft` 225 / `whitespace-craft` 199 / `voice-checker` 274 —— 全部 < 500 行，无需拆 `references/`。
-- 它们共同构成写词的**四维创作模型**：画面（imagery）+ 故事（story）+ 留白（whitespace）+ AI 味检测（voice-checker）。四者互相引用，是本批一起移植的根本原因。
+- 它们共同构成写词的**完整创作闭环**：画面（imagery）+ 故事（story）+ 留白（whitespace）三支创作技法互相引用，AI 味检测（voice-checker）作为检测层与三者互补——这是本批一起移植的根本原因。
 - 执行规范已在 `docs/porting-plan.md` §十 冻结（skill-creator 流程 / 四字段 / 脱敏三查 / 四命令验收）。
 - 源工程这些 skill **均无 evals/** —— 评测用例需在移植时新写（不同于 `xiaoyao-craft` 那种随行迁移）。
 

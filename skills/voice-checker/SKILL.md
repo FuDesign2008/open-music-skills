@@ -2,10 +2,10 @@
 name: voice-checker
 version: "0.1.0"
 user-invocable: true
-description: Use when 审查中文歌词的真实性、或生成前检查 AI 味。检测 11 类 AI 写作模式（抽象名词堆砌、过度解释、陈词升级、成语与古诗滥用等），按 Warning/Info 分级给出方向，仅建议不强制、绝不改写。触发词包括 AI味、歌词太AI、检查歌词真实性、voice-check、歌词空洞、歌词像AI写的、成语堆砌、陈词滥调、古诗拼贴。反向边界：纯器乐无歌词作品不适用；只判 AI 写作模式，不评文学水平、不做结构或押韵审查（交给 lyric-reviewer）；不自动改写、不阻断流水线。
+description: Use when 审查中文歌词的真实性、或生成前检查 AI 味。检测 11 类 AI 写作模式（抽象名词堆砌、过度解释、陈词升级、成语与古诗滥用等），按 Warning/Info 分级给出方向，仅建议不强制、绝不改写。触发词包括 AI味、歌词太AI、检查歌词真实性、voice-check、歌词空洞、歌词像AI写的、成语堆砌、陈词滥调、古诗拼贴。反向边界：纯器乐无歌词作品不适用；只覆盖 AI 味相关判断（平行结构、韵脚疲劳仅从 AI 味视角检查），不替代 lyric-reviewer 的完整技艺审查；不自动改写、不阻断流水线。
 ---
 
-# 歌词 AI 人声模式检测器（voice-checker）
+# 歌词 AI 写作模式检测器（voice-checker）
 
 > 定位：创作与生成之间的**建议层**。只标记问题、给出方向，绝不改写、绝不阻断流水线。
 
@@ -256,6 +256,8 @@ VOICE CHECK 报告
 - `music-creation-workflow`：负责整体 Prompt 生成与规则检查
 - `lyric-reviewer`：互补——reviewer 检查技艺问题（结构、押韵、长度），voice-checker 检查真实性问题（AI 味）
 - `pre-generation-check`：生成前最后一道关卡
+
+> 上述 skill 与本 skill 同属本仓库，见 `skills/`；尚未安装的按名称检索。
 
 ---
 

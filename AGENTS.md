@@ -74,6 +74,8 @@ npm test
 
 - 目录名 = frontmatter `name`，kebab-case
 - skill 名应表达能力而非实现（如 `xiaoyao-craft` 而非 `suno-aesthetic-3`）
+- skill 名不得锁定单一平台：方法论跨平台复用时取中性名（如 `music-creation-workflow` 而非 `suno-workflow`），平台专属字段在正文内标注适用范围
+- **依赖前缀 `ego-`**：运行时依赖 `ego-browser`（浏览器自动化）的 skill **必须保留 `ego-` 前缀**（前缀即依赖声明）；不依赖者**不得**使用该前缀。此约定同步自源工程铁律 31，跨仓库改名时须两侧同步
 - 中文排版：中文与西文/数字之间留空格（既有文档为准）
 
 ## 反模式（禁止）

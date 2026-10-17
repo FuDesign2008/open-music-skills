@@ -1,0 +1,12 @@
+{
+  "skill_name": "pronunciation-check",
+  "evals": [
+    {
+      "id": 1,
+      "name": "polyphone-lowfreq-and-number-lyrics",
+      "prompt": "帮我检查这首歌词的发音风险：『你出差那天 行家都说我傻 我在996的路口 等老家的馍香』。生成前帮我处理一下。",
+      "expected_output": "触发 pronunciation-check：识别多音字（出差 chāi、行家 háng）、阿拉伯数字（996→九九六）、低频单音字（馍 mó→魔）；按三级策略区分 🟢 自动改生成层、🟡 公版原句/待实测只标记、🔵 常见组合仅 Info；给出生成层替换与发行层还原说明（出拆/航家/九九六/老家的魔；发行层保留原字），并追加「发音修复说明」。",
+      "files": []
+    }
+  ]
+}

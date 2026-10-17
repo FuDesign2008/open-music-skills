@@ -1,0 +1,12 @@
+{
+  "skill_name": "logic-audit",
+  "evals": [
+    {
+      "id": 1,
+      "name": "stale-time-scene-and-index-mismatch",
+      "prompt": "这首曲目的时间场景从深夜改成了上午十点，帮我跑一遍逻辑检查，看看还有没有残留和不一致。",
+      "expected_output": "触发 logic-audit：D1 检查歌词/Outro 是否残留旧时间场景引用（凌晨/天亮/窗外等）；D2 核对情绪标签与新时间场景是否匹配；D4 核对自检表引文与字符数是否过时；D6 核对专辑索引/说明与实际曲目文件是否同步；按自动修复（机械项）/ 需用户决策（叙事项）分类输出。",
+      "files": []
+    }
+  ]
+}

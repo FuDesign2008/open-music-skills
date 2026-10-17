@@ -1,0 +1,76 @@
+{
+  "skill_name": "orchestration-craft",
+  "notes": "纸面评估（paper eval）；description 触发自检见正/负例；subagent 动态基准可在后续迭代补跑。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "style-writing-positive",
+      "prompt": "这张豪放专辑开始写了，帮我写 track01 的生成 Style，要大气一点",
+      "expected_output": "触发 orchestration-craft：判谱系豪放→民族管弦全编制模板（六层表：deep cello and double bass foundation 进 Intro、taiko V2 起、主奏 guzheng+pipa+dizi、dizi and erhu call-and-response 副歌间奏）；主奏从 A 层选；配器扩展段五句式（标签式平台 240-380 字符嵌入 ≤1000 预算；自然语言式平台按短指令压缩），骨架句逐字保留；自查禁裸 orchestral",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "feedback-thin-texture-positive",
+      "prompt": "听众反馈这批中国风歌配器太单一了，全是古筝撑着，层次不够繁花似锦",
+      "expected_output": "触发 orchestration-craft：先诊断织体而非直接加乐器——低音层缺位（V1 即进 warm cello 是最大杠杆）/ 对位层缺位 / 层间无进出设计；按各曲气质判谱系后给三谱系差异化方案（豪放全编制 / 婉约跨界铺底 / 叙事递进）；强调问题在织体密度不在乐器数量",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "chorus-thin-positive",
+      "prompt": "这首中国风编曲太薄了，副歌感觉撑不起来，怎么改 Style",
+      "expected_output": "触发 orchestration-craft：副歌 ≥3 层写法（full arrangement blooms 句式，单句乐器 ≤3-4 件）+ 低音层 V1 即进 + countermelody 只给 chorus + 动态递进句（strings and soft taiko build）；改前按平台预算分配（标签式平台 ≤1000；自然语言式平台短指令），骨架句不缩水",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "counterpoint-positive",
+      "prompt": "副歌想加点对位旋律，现在织体太平了只有一条线",
+      "expected_output": "触发 orchestration-craft 技法层：countermelody（strings carry a soft countermelody under the vocal，只给 chorus）与 call-and-response（dizi and erhu answer each other）的选型区分——人声下面有另一条唱歌的线用前者，两乐器互相接话用后者；countermelody 先例少、响应未充分验证，首用放单变量实验位",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "add-instruments-positive",
+      "prompt": "帮我把这首 guzheng 主导的 Style 改丰满一点，可以加点新乐器",
+      "expected_output": "触发 orchestration-craft：查 references/instrument-pool.md 按响应度三层选件——优先加 A/B 层（cello 低音层、harp 铺底），C 层（yangqin/konghou 等）≤2 件且标注首夜单变量实测；只加层不换主奏；suona 禁入婉约、双低音禁入 ≤62 BPM 慢曲",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "boundary-imagery-not-orchestration",
+      "prompt": "歌词写完了，帮我检查一下画面感够不够，有没有太抽象的地方",
+      "expected_output": "触发 imagery-craft（歌词维度 10 维度自检），不触发 orchestration-craft（配器/Style 维度未涉及）",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "boundary-whitespace-not-orchestration",
+      "prompt": "这首歌人声太满了，我想要大段没人唱的纯器乐段落，前奏尾奏再长一点",
+      "expected_output": "触发 whitespace-craft（人声缺席/器乐占比维度：开头结尾 ≥30s 纯器乐 + 人声缺席 ≥60%），不触发 orchestration-craft——「器乐」字面相近但诉求是人声占比不是织体丰满度；若器乐段内乐器选择有需求，两 skill 组合（whitespace 定占比框架，orchestration 定段内织体）",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "boundary-mastering-not-orchestration",
+      "prompt": "平台生成好的这几个 wav 帮我做母带处理，响度对齐流媒体标准",
+      "expected_output": "触发 audio-mastering（EQ + lowpass + loudnorm），不触发 orchestration-craft（音频后处理，非 Style 创作）",
+      "files": []
+    },
+    {
+      "id": 9,
+      "name": "boundary-dna-extraction-not-orchestration",
+      "prompt": "新专辑定了国风方向，先从几首标杆歌里提取一下风格 DNA，看看 BPM 和乐器编配规律",
+      "expected_output": "触发 music-dna-extraction（7 维横向提取，含维度 3 乐器编配），不触发 orchestration-craft——提取阶段产出的是乐器池证据源；随后写 Style 时 orchestration-craft 才进场消费该证据（两 skill 是上下游关系）",
+      "files": []
+    },
+    {
+      "id": 10,
+      "name": "boundary-lyric-review-not-orchestration",
+      "prompt": "生成之前帮我审查一下歌词，押韵和节奏有没有问题",
+      "expected_output": "触发 lyric-reviewer（16 点审查），不触发 orchestration-craft（歌词维度，非 Style 配器维度）",
+      "files": []
+    }
+  ]
+}

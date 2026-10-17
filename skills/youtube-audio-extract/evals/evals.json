@@ -1,0 +1,12 @@
+{
+  "skill_name": "youtube-audio-extract",
+  "evals": [
+    {
+      "id": 1,
+      "name": "extract-audio-from-youtube",
+      "prompt": "帮我把这个 YouTube 链接的音频提取成 WAV，放到项目的 research 目录：https://www.youtube.com/watch?v=xxxxx",
+      "expected_output": "触发 youtube-audio-extract：先检查 yt-dlp / deno / Chrome cookies 前置条件；用 `yt-dlp --no-playlist -x --audio-format wav --cookies-from-browser chrome -o <保存路径> <URL>` 下载；用 ls 与 ffprobe 验证文件与时长；说明仅用于个人分析/参考、遵守平台条款与版权。",
+      "files": []
+    }
+  ]
+}

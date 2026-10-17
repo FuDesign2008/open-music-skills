@@ -28,17 +28,18 @@ const SELF = path.relative(root, __filename).split(path.sep).join("/"); // scrip
 export const DENYLIST = [
   // 私有工程路径形态:顶层目录 + 斜杠 + ASCII 路径段。
   // 限定 ASCII 首字符,避免误伤「Suno/妙响」这类平台并列写法;
-  // 否定后顾排除 URL 路径段与 myresearch/ 这类词内嵌(只看真正的顶层目录)。
-  { pattern: "(?<![A-Za-z0-9_./-])(?:suno|masterclass)/[A-Za-z0-9]" },
-  // research 是常见英文词,分两种路径形态命中:
-  //   a) 段内含 . 或 /(文件/子目录)——形态明确,直接命中;
-  //   b) 无扩展名的裸目录名——仅当其后不是「空白+小写英文」(避免 research/engineering collaboration)。
-  // 否定后顾排除词内嵌(myresearch/)与 URL 路径段,并排除反引号(交给下一条,避免重复命中)。
-  { pattern: "(?<![A-Za-z0-9_./`-])research/[A-Za-z0-9._-]*[./]" },
-  { pattern: "(?<![A-Za-z0-9_./`-])research/[A-Za-z0-9_-]+(?![A-Za-z0-9_-])(?![\\s][a-z]|[./])" },
+  // 否定后顾排除 URL 路径段、myresearch/ 这类词内嵌,以及反引号(交给下方引号规则,避免重复命中)。
+  { pattern: "(?<![A-Za-z0-9_./`-])(?:suno|masterclass)/[A-Za-z0-9]" },
+  // research 同时是常见英文词。脱敏门禁按「宁可误报、不可漏报」取舍:
+  // 英文散文里的 research/xxx 也命中(改写措辞即可);URL 与词内嵌已由后顾排除。
+  // 这条同时覆盖无扩展名、带扩展名与子路径三种形态,避免白名单边界带来的漏报。
+  { pattern: "(?<![A-Za-z0-9_./`-])research/[A-Za-z0-9]" },
   // 反引号包裹的私有目录形态:如 `masterclass/...`。路径段可能是省略号或占位符,
-  // 上面的 ASCII 首字符规则覆盖不到;此条目只列私有目录,不含 suno(避免误伤平台名)。
+  // 上面的 ASCII 首字符规则覆盖不到;此条目只列 masterclass/research(不含 suno)。
   { pattern: "`(?:masterclass|research)/[^`\\n]*`" },
+  // 反引号内的 suno 要求斜杠后是 ASCII,覆盖 `suno/x` 与 `suno/notes.md`,
+  // 同时排除 `Suno/妙响` 这类平台并列写法。
+  { pattern: "`suno/[A-Za-z0-9][^`\\n]*`" },
   // 内部规则编号引用:「铁律 12」「铁律26」(容忍全角空格)。
   { pattern: "铁律[\\s　]*\\d+" },
 ];

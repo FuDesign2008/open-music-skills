@@ -15,7 +15,7 @@ open-music-skills 目前只有 1 个 skill（`xiaoyao-craft`），仓库的**创
 - 删除内部规则编号引用 → 改为规则本身的表述
 - 删除私有资料路径 → 改为「扩展阅读」或删除
 - 删除私有批次号/曲目名/专辑名 → 去名或改公开示例
-- 跨 skill 引用改为**最终目标名**（同仓库后续批次将落地：`music-creation-workflow` / `lyric-reviewer` / `pre-generation-check` / `songyun-craft` / `ego-miaoxiang-create` 等）
+- 跨 skill 引用改为**最终目标名**（同仓库后续批次将落地：`music-creation-workflow` / `lyric-reviewer` / `pre-generation-check` / `songyun-craft` 等）
 - 平台专属表述标注适用范围
 
 **无 BREAKING 变更**（纯新增）。
@@ -38,4 +38,4 @@ open-music-skills 目前只有 1 个 skill（`xiaoyao-craft`），仓库的**创
 - **新增文件**：`skills/imagery-craft/SKILL.md`、`skills/story-craft/SKILL.md`、`skills/whitespace-craft/SKILL.md`、`skills/voice-checker/SKILL.md`（+ 各自的 `evals/`），`docs/generated/skills-index.md` 自动更新
 - **依赖**：全部零运行时依赖（纯文本方法论 + 输出格式模板）
 - **不影响**：源工程（只读）、`xiaoyao-craft`（既有）
-- **后续批次**：本批 4 个 skill 的跨 skill 引用指向的 skill 将在 batch-2..8 落地（不阻塞本批验收）
+- **后续批次**：本批 4 个 skill 的跨 skill 引用指向的 skill 将在 batch-3..8 落地（不阻塞本批验收）

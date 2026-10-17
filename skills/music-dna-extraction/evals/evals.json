@@ -1,0 +1,12 @@
+{
+  "skill_name": "music-dna-extraction",
+  "evals": [
+    {
+      "id": 1,
+      "name": "eight-benchmark-dna-extraction",
+      "prompt": "帮我从这 8 首同类型标杆提取风格 DNA，给新专辑做参数。标杆清单在项目调研目录里；要求输出 BPM 分配、调式、乐器编配和 Style 配方。",
+      "expected_output": "触发 music-dna-extraction：按 5 步流程执行——确认 8 首标杆池（覆盖年份/平台/艺人）→ 每 2 首一个后台 agent 并行调研 7 维（BPM/调式/乐器/曲式/歌词意象/制作/情绪有效性）→ 跨歌综合看分布而非平均值 → 输出 7 维 DNA 指纹 + BPM 分配 + 色彩乐器分配 + 标签式/自然语言式双载体 Style 配方 → 输出专辑参数。Style 配方只含风格要素，不出现标杆歌曲名/艺人名。",
+      "files": []
+    }
+  ]
+}

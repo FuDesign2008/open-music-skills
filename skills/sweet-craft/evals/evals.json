@@ -1,0 +1,55 @@
+{
+  "skill_name": "sweet-craft",
+  "notes": "纸面评估（paper eval），未跑 subagent 基准；后续可由创作者交互期补跑。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "sweet-song-creation-positive",
+      "prompt": "我们要做一首夏日便利店恋爱的新歌，想要那种甜甜的、元气的感觉，女生唱的，帮我把歌词和生成配置写出来",
+      "expected_output": "触发 sweet-craft：歌词按物件化 7 技写（甜点全有物理载体、酸先甜后、克制收尾无告白），声乐层给女声配方（优先路径 1 歌词去人声标记 + 路径 2 Style 叠加女声元素），编配用电钢+finger snaps+glockenspiel 签名与明亮 major 调，发行层给曲名双截流建议",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "sweet-lyric-rework-positive",
+      "prompt": "这首甜歌歌词被创作者评了「牙酸、太腻」，帮我改：她的笑像糖果一样甜，甜甜的恋爱围绕着我们，每一天都好甜好幸福",
+      "expected_output": "触发 sweet-craft 第二节自检表做诊断：定位为形容词直给（甜的载体全是「甜」字本身），按物件化改造——给每个甜点换物理载体，补酸先甜后结构与感官锚点，收尾改克制留白",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "boundary-xiaoyao-not-sweet",
+      "prompt": "写一首曾经天下第一自由、如今被困在一个地方的歌，想要飘散、失重、没有挣扎的那种感觉",
+      "expected_output": "触发 xiaoyao-craft（失重飘散美学），不触发 sweet-craft（悲向/失重向，甜感美学互斥场景）",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "boundary-launch-not-sweet",
+      "prompt": "专辑生成完了，帮我制定上线计划和投放策略，蹭热度标签怎么挂",
+      "expected_output": "触发 launch-strategy（通用发行流程），不因「蹭热度标签」字面而触发 sweet-craft（甜歌赛道特有发行实证才归 sweet）",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "boundary-imagery-composable",
+      "prompt": "写甜歌的时候我觉得画面感不够，歌词太抽象，怎么让每句都有画面",
+      "expected_output": "sweet-craft 与 imagery-craft 叠加：sweet-craft 主导甜感结构（物件化甜感本就是画面技法），imagery-craft 补逐句画面密度——两者分工而非互斥，按划界节组合使用",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "boundary-story-not-sweet",
+      "prompt": "这首歌歌词太空太直白，像流水账，没有回味和遐想空间，怎么改出故事感",
+      "expected_output": "触发 story-craft（叙事留白/冰山原则），不触发 sweet-craft（「回味/留白」诉求归叙事技法；sweet 的克制收尾只是甜感场景下的一个点技法）",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "sweet-line-packaged-evidence-pacing",
+      "prompt": "甜歌这条线值不值得加码？现在只有同曲双版本 A/B 的打包结论（女声+品类词后缀 vs 混唱无后缀），我该怎么判断？",
+      "expected_output": "触发 sweet-craft（发行层 + 打包归因纪律）：(1) 口径先行——跨端共享计数与站内播放分属两口径不可相除；(2) 该结论是打包证据，女声/后缀/蹭名主词三变量未分离，禁止拆包归因；(3) 执行纪律：小额验证优先、不重仓；(4) 不把任何历史排名当现行结论，判断看同口径增量 + 受众侧信号",
+      "files": []
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 - [x] 1.1 起草：读源全文（181 行），七步/三分区/两种模式保留，去私有路径/日期/批次/曲名/规则编号；改名 ego-multi-ai-research；落盘 `skills/ego-multi-ai-research/SKILL.md`。验证：正文 <500 行
 - [x] 1.2 新写 `evals/evals.json`（1 个 case）。验证：JSON 可解析
 - [x] 1.3 跑契约断言：七步 / 问题组 / 三分区 / 来源 / 降级 / ego-browser / 两种模式 / 第四源。验证：12/12 通过
-- [x] 1.4 迭代（若有）+ 留痕写入 `skills/PORT-BATCH-7-LOG.md`
+- [x] 1.4 迭代（若有）+ 留痕写入 `docs/porting/PORT-BATCH-7-LOG.md`
 
 ## 2. ego-zhihu-inspiration
 

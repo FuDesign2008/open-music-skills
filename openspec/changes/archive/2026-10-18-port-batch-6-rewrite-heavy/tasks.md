@@ -3,7 +3,7 @@
 - [x] 1.1 起草：读源全文（153 行），流量路径 + 15 条性状 + 发行配套保留，私有曲名/数值删除；落盘 `skills/hit-pattern-craft/SKILL.md`。验证：正文 <500 行
 - [x] 1.2 新写 `evals/evals.json`（1 个 case）。验证：JSON 可解析
 - [x] 1.3 跑契约断言：路径 A / 路径 B / 双路径 / 15 条 / 曲名 / 合作署名 / 成组 / D0-D1 / 复刻阶梯 / 相关性。验证：10/10 通过
-- [x] 1.4 迭代（若有）+ 留痕写入 `skills/PORT-BATCH-6-LOG.md`
+- [x] 1.4 迭代（若有）+ 留痕写入 `docs/porting/PORT-BATCH-6-LOG.md`
 
 ## 2. pre-generation-check
 

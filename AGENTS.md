@@ -19,6 +19,7 @@
 skills/<name>/SKILL.md     每个 skill 一个目录（含可选 evals/、references/、scripts/、assets/）
 scripts/                   仓库工具链：索引生成 / description lint / 脱敏 lint / 全局安装
 docs/generated/            自动生成物（**勿手改**，由 pre-commit 与 CI 校验新鲜度）
+docs/porting/              移植过程留痕（起草 / 评测 / 迭代证据，按批次一文件）
 openspec/                  行为契约（specs/）与变更归档（changes/archive/）
 .github/workflows/         CI：索引新鲜度、自动版本发布
 ```

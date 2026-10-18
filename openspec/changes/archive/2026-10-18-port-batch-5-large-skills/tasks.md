@@ -4,7 +4,7 @@
 - [x] 1.2 写 `references/creation-rules.md`（12 条核心规则 + 专辑审查 + 修订纪律）并脱敏。验证：无私有路径/规则编号
 - [x] 1.3 新写 `evals/evals.json`（模式 A/B 2 个 case）。验证：JSON 可解析
 - [x] 1.4 跑契约断言：模式 A/B / 六段 / 四维 / 检查链 / 交付物 / references。验证：16/16 通过
-- [x] 1.5 迭代（若有）+ 留痕写入 `skills/PORT-BATCH-5-LOG.md`
+- [x] 1.5 迭代（若有）+ 留痕写入 `docs/porting/PORT-BATCH-5-LOG.md`
 
 ## 2. music-trends-report
 

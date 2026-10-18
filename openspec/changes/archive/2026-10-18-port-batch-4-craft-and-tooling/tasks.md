@@ -4,7 +4,7 @@
 - [x] 1.2 随行迁移 `references/instrument-pool.md` 并去私有统计。验证：无私有数据残留
 - [x] 1.3 随行迁移 `evals/evals.json`（10 个 case）并脱敏。验证：JSON 可解析
 - [x] 1.4 跑契约断言：六层 / 三谱系 / 六技法 / A-B-C / 预算 / references。验证：16/16 通过
-- [x] 1.5 迭代（若有）+ 留痕写入 `skills/PORT-BATCH-4-LOG.md`
+- [x] 1.5 迭代（若有）+ 留痕写入 `docs/porting/PORT-BATCH-4-LOG.md`
 
 ## 2. remix-craft
 

@@ -3,7 +3,7 @@
 - [x] 1.1 起草：读源全文（367 行），三步向导/容器标记法/歌词框互斥分类/QC 四道门/issuedId 直链保留，去账号艺名/合作者/私有曲名/批次/规则编号/私有路径；落盘 `skills/ego-qishui-release/SKILL.md`。验证：正文 <500 行
 - [x] 1.2 新写 `evals/evals.json`（1 个 case）。验证：JSON 可解析
 - [x] 1.3 跑契约断言：三步向导 / 容器标记法 / 互斥分类 / 回读守卫 / QC 四门 / issuedId / 依赖声明。验证：通过
-- [x] 1.4 迭代（若有）+ 留痕写入 `skills/PORT-BATCH-8-LOG.md`
+- [x] 1.4 迭代（若有）+ 留痕写入 `docs/porting/PORT-BATCH-8-LOG.md`
 
 ## 2. ego-qishui-stats
 

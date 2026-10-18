@@ -3,7 +3,7 @@
 - [x] 1.1 起草：读源全文（266 行），去内部规则编号 / 私有曲目 / 私有路径，平台术语中立化；落盘 `skills/pronunciation-check/SKILL.md`。验证：正文 <500 行
 - [x] 1.2 新写 `skills/pronunciation-check/evals/evals.json`（1 个 case）。验证：JSON 可解析
 - [x] 1.3 跑契约断言：三类风险 / 三级策略 / 单音字原则 / 两种数字读法 / 报告与还原 / 公版原句。验证：15/15 通过
-- [x] 1.4 迭代（若有）+ 留痕写入 `skills/PORT-BATCH-2-LOG.md`
+- [x] 1.4 迭代（若有）+ 留痕写入 `docs/porting/PORT-BATCH-2-LOG.md`
 
 ## 2. explicit-checker
 

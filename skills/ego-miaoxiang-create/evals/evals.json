@@ -1,0 +1,13 @@
+{
+  "skill_name": "ego-miaoxiang-create",
+  "note": "契约级评测（paper eval）：真实生成需要平台登录态，无法离线端到端执行。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "generate-with-co-singer-voice",
+      "prompt": "用妙响把这首词生成出来，曲名定为《旧城以北》，我想要和一个合作者联合署名。",
+      "expected_output": "触发 ego-miaoxiang-create：注入**联合署名模板**——含「曲名定为《旧城以北》」显式句且**删除「人声用 X」句**（Style 内声线描述仍会触发快速路径跳池，接受并转补救）；确认卡出现后补发音色池请求，池内点「选择」；重出确认卡后校验文本含合作者实名才点「生成歌曲」（强制门），3 轮仍不含则弃该次提交；轮询用跨曲名正则，以 assets API 产出为唯一判据（started=false 不作放弃依据）；产出后按卡片时长择优；到发行环节走 issuedId 直链或资产页 WorkID 粒度入口，提示同名多版本须创作者拍板。",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "skill_name": "sms-code-reader",
+  "note": "契约级评测（paper eval）：真实读取需要 macOS 完全磁盘访问与 iPhone-Mac 同步环境，无法离线端到端执行。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "read-code-with-sync-stall-recovery",
+      "prompt": "自动化流程要输验证码了，帮我从短信里读一下；上次等半天没读到。",
+      "expected_output": "触发 sms-code-reader：先跑完全磁盘访问检查（authorization denied 则给授权指引）与同步健康诊断；触发验证码后等 30-90s 轮询读取，**轮询覆盖约 270s（18×15s）**，只接受 0-270s 时间窗内的码；无新码时不重复触发；判断是否 Mac 侧停滞（chat.db-wal mtime 冻结 + Messages 活 + APNs 通）→ `killall Messages` + `open -a Messages` 恢复；同时检查 iPhone 电量与是否同网络；最终失败给人工报码 fallback。**隐私边界**：SQL 仅查 `LIKE '%验证码%'`，不读取/存储其他短信；只输出验证码与时间戳、用后即弃，不写长期存储或仓库（宿主 transcript/shell history 不可控，避免 `set -x`）。",
+      "files": []
+    }
+  ]
+}

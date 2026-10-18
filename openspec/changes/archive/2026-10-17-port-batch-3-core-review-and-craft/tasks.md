@@ -3,7 +3,7 @@
 - [x] 1.1 起草：读源全文（335 行），16 点框架保留，去内部规则编号 / 私有路径 / 私有批次与曲目 ID，平台长度项中立化；落盘 `skills/lyric-reviewer/SKILL.md`。验证：正文 <500 行
 - [x] 1.2 新写 `skills/lyric-reviewer/evals/evals.json`（2 个 case）。验证：JSON 可解析
 - [x] 1.3 跑契约断言：16 点全现、严重度、只审查不改写、自动修复边界。验证：17/17 通过
-- [x] 1.4 迭代（若有）+ 留痕写入 `skills/PORT-BATCH-3-LOG.md`
+- [x] 1.4 迭代（若有）+ 留痕写入 `docs/porting/PORT-BATCH-3-LOG.md`
 
 ## 2. music-dna-extraction
 

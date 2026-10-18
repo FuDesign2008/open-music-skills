@@ -19,6 +19,7 @@
 skills/<name>/SKILL.md     每个 skill 一个目录（含可选 evals/、references/、scripts/、assets/）
 scripts/                   仓库工具链：索引生成 / description lint / 脱敏 lint / 全局安装
 docs/generated/            自动生成物（**勿手改**，由 pre-commit 与 CI 校验新鲜度）
+docs/porting/              移植过程留痕（起草 / 评测 / 迭代证据，按批次一文件）
 openspec/                  行为契约（specs/）与变更归档（changes/archive/）
 .github/workflows/         CI：索引新鲜度、自动版本发布
 ```
@@ -75,7 +76,8 @@ npm test
 - 目录名 = frontmatter `name`，kebab-case
 - skill 名应表达能力而非实现（如 `xiaoyao-craft` 而非 `suno-aesthetic-3`）
 - skill 名不得锁定单一平台：方法论跨平台复用时取中性名（如 `music-creation-workflow` 而非 `suno-workflow`），平台专属字段在正文内标注适用范围
-- **依赖前缀 `ego-`**：运行时依赖 `ego-browser`（浏览器自动化）的 skill **必须保留 `ego-` 前缀**（前缀即依赖声明）；不依赖者**不得**使用该前缀。此约定同步自源工程铁律 31，跨仓库改名时须两侧同步
+- **依赖前缀 `ego-`**：运行时依赖 `ego-browser`（浏览器自动化）的 skill **必须保留 `ego-` 前缀**（前缀即依赖声明）；不依赖者**不得**使用该前缀。此约定同步自源工程规则，跨仓库改名时须两侧同步
+- **跨仓库依赖**：`astrill-control`（macOS VPN 控制）属 **open-skills** 仓库（通用网络工具，非 music 专属）；本仓库 skill 以外部引用方式使用，不随附复制。安装：`npx skills add FuDesign2008/open-skills -g`
 - 中文排版：中文与西文/数字之间留空格（既有文档为准）
 
 ## 反模式（禁止）

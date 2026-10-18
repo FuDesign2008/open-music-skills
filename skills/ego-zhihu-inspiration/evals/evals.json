@@ -1,0 +1,12 @@
+{
+  "skill_name": "ego-zhihu-inspiration",
+  "evals": [
+    {
+      "id": 1,
+      "name": "zhihu-story-inspiration-collection",
+      "prompt": "去知乎帮我找点真实故事灵感，最近想写「普通人的高光时刻」这个方向。",
+      "expected_output": "触发 ego-zhihu-inspiration：先跑登录探针；按三入口采集（热榜快扫/搜索批量为主矿/问题详情为金矿）；搜索词用「情绪象限+真实经历标记」；逐条高赞回答提取四要素（时刻/情绪内核/升华方向/溯源），纯观点争论贴不选；与存量选题对照标新增/邻接；报告落盘并交创作者拍板；遵守零文本借用、零叙事复述（写词后 8-gram 核验）。",
+      "files": []
+    }
+  ]
+}

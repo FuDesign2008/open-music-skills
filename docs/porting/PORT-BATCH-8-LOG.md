@@ -9,6 +9,10 @@
 - 评测用例：5 个（各 1 case）
 - **评测深度诚实标注**：平台自动化 skill 的端到端评测需要真实登录态与账号，公开仓库中不可执行——本批为**契约级评测**（断言正文是否覆盖关键配方与安全门），非端到端实操；不做 baseline 对照；未做 description 触发优化
 
+## 后续调整（2026-10-18）
+
+**`astrill-control` 已迁出本仓库**：它属于 open-skills 仓库（通用 macOS 网络工具，非 music 专属）。本仓库保留的 4 个 skill（release / stats / miaoxiang / sms）通过外部依赖引用它——`ego-qishui-release` 与 `ego-miaoxiang-create` 的网络环境节已改为「见 open-skills 的 astrill-control」。因此本批次最终在库内交付 **4 个 skill**，原「5 个」的起草/评测记录作为历史保留。
+
 ## 起草段
 
 | skill | 源行数 → 目标行数 | 脱敏改写要点 |

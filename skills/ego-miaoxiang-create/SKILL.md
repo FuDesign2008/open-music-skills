@@ -187,4 +187,4 @@ description: 用 ego-browser 在妙响（MUSE SONG）studio 自动化批量生�
   → ego-qishui-release（汽水发行：表单 + 电子签）
 ```
 
-- 前置依赖：ego-browser；网络要求与发行端相同（直连 + DNS 检测，见 `astrill-control`）。
+- 前置依赖：ego-browser；网络要求与发行端相同（直连 + DNS 检测；VPN 控制见 **open-skills** 仓库的 `astrill-control` skill，本仓库不随附）。
